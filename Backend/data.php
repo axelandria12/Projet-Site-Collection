@@ -12,7 +12,7 @@
     }
 
     function getComptes() {
-        $result = array();
+        $result = [];
 
         try {
             $base = getBase("root", "", "site_collection", "");
