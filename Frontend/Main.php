@@ -1,5 +1,5 @@
 <?php
-include "$racine/front end/vue/enteteCollec.html.php";
-include "$racine/front end/vue/vueAuthentification.php";
-include "$racine/front end/vue/pied.html.php";
+include "$racine/vue/enteteCollec.html.php";
+include "$racine/vue/vueMenu.php";
+include "$racine/vue/piedCollec.html.php";
 ?>
