@@ -72,18 +72,29 @@
     function login($mail, $mdp) {
         $result = [];
 
-        try {
-            $Accounts = getCompteByMail($mail);
-            $Account = $Accounts[0];
-            if (isset($Accounts) and $Account['mot de passe'] == $mdp) {
-                $_SESSION['Id'] = $Account['n°compte'];
-                $_SESSION['Mdp'] = $Account['mot de passe'];
-            }
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage();
-            die();
+        if (!isset($_SESSION)) {
+            session_start();
         }
+        
+        $Accounts = getCompteByMail($mail);
+        $Account = $Accounts[0];
+        if (isset($Accounts) and $Account['mot de passe'] == $mdp) {
+            $_SESSION['Id'] = $Account['n°compte'];
+            $_SESSION['Mdp'] = $Account['mot de passe'];
+        }
+
         return $result;
+    }
+
+    function logout() {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (isset($_SESSION['Id'])) {
+            unset($_SESSION['Id']);
+            unset($_SESSION['Mdp']);
+        }
     }
 
     function isLoggedIn() {
