@@ -1,4 +1,5 @@
 <?php
+
     function getBase($login, $mdp, $bd, $server) {
         try {
             $result = new PDO("mysql:host=$server;dbname=$bd", $login, $mdp, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')); 
@@ -9,5 +10,23 @@
             die();
         }
     }
-    
+
+    function getComptes() {
+        $result = array();
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select * from compte");
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
 ?>
