@@ -29,4 +29,23 @@
         }
         return $result;
     }
+
+    function getCompteById($id) {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select * from compte where n°compte = $id");
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
 ?>

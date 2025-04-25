@@ -4,9 +4,11 @@ je fais un test maintenant
 
 <?php
     include_once "../../Backend/data.php";
-    $Comptes = getComptes();
-    foreach ($Comptes as $Account) {
-        foreach ($Account as $key => $value) {
+    $Account = getCompteById(12234);
+    if (empty($Account)) {
+        echo "<li>Pas de compte trouvé</li>";
+    } else {
+        foreach ($Account[0] as $key => $value) {
             echo "<li>$key : $value</li>";
         }
     }
