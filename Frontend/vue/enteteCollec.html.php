@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-        <title><?php echo $titre ?></title>
+        <title><?php echo "Projet Collection" //$titre ?></title>
         <style type="text/css">
-            @import url("css/style-default.css");
+            @import url("css/css.css");
         </style>
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     </head>
     <body>
     <div>
+    <header>
+        
