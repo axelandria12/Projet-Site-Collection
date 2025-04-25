@@ -12,7 +12,7 @@
     }
 
     function getComptes() {
-        $result = array();
+        $result = [];
 
         try {
             $base = getBase("root", "", "site_collection", "");
@@ -28,5 +28,80 @@
             die();
         }
         return $result;
+    }
+
+    function getCompteById($id) {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select * from compte where n°compte = $id");
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
+    function getCompteByMail($mail) {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select * from compte where mail = :mail");
+            $request->bindParam(':mail', $mail, PDO::PARAM_STR);
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
+    function login($mail, $mdp) {
+        $result = [];
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        
+        $Accounts = getCompteByMail($mail);
+        $Account = $Accounts[0];
+        if (isset($Accounts) and $Account['mot de passe'] == $mdp) {
+            $_SESSION['Id'] = $Account['n°compte'];
+            $_SESSION['Mdp'] = $Account['mot de passe'];
+        }
+
+        return $result;
+    }
+
+    function logout() {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (isset($_SESSION['Id'])) {
+            unset($_SESSION['Id']);
+            unset($_SESSION['Mdp']);
+        }
+    }
+
+    function isLoggedIn() {
+        if (isset($_SESSION['Id'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 ?>
