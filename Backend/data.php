@@ -104,4 +104,41 @@
             return false;
         }
     }
+
+    function AmountAccounts() {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select count(*) as 'Nombre de comptes' from compte");
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
+    function register($pseudo, $mail, $mdp) {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("insert into compte (n°compte, pseudo, mail, mot de passe) values (:id, :pseudo, :mail, :mdp)");
+            $request->bindParam(':id', AmountAccounts()[0]+1, PDO::PARAM_INT);
+            $request->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+            $request->bindParam(':mail', $mail, PDO::PARAM_STR);
+            $request->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+            $request->execute();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
 ?>
