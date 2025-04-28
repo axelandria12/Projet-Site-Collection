@@ -1,84 +1,32 @@
-/* Reset de base */
-* /*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+header {
+    background-color: #1e3a8a; /* fond bleu */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
   }
   
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #0d1b2a;
-    color: #e0e1dd;
-    line-height: 1.6;
-  }*/
-  
-  header {
-    color: #e07c1e;
-    background-color: #1353ca;
-    padding: 20px 40px;
+  h1 {
+    flex: 1;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  }
-  /*
-  header h1 {
-    color: #e0e1dd;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
-  nav {
-    margin-top: 10px;
-  }
-  
-  nav a {
-    color: #e0e1dd;
-    text-decoration: none;
-    margin: 0 15px;
+  .left-btn,
+  .right-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
     font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: #778da9;
-  }
-  
-  main {
-    padding: 40px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  section {
-    margin-bottom: 40px;
-  }
-  
-  h2 {
-    color: #f0f0f0;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #415a77;
-    display: inline-block;
-    padding-bottom: 5px;
-  }
-  
-  button {
-    background-color: #1b263b;
-    color: #e0e1dd;
-    border: 2px solid #415a77;
-    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 6px;
     transition: background 0.3s ease;
   }
   
-  button:hover {
-    background-color: #415a77;
+  .left-btn:hover,
+  .right-btn:hover {
+    background-color: #2563eb;
   }
   
-  footer {
-    background-color: #1b263b;
-    text-align: center;
-    padding: 20px;
-    color: #a9bcd0;
-    font-size: 0.9rem;
-    margin-top: 40px;
-  }
-  */

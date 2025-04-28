@@ -11,4 +11,7 @@
     <body>
     <div>
     <header>
-        
+  <button class="left-btn">Menu</button>
+  <h1>Mon super site</h1>
+  <button class="right-btn">Connexion</button>
+</header>
