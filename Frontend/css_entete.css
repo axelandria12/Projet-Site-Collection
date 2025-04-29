@@ -11,14 +11,14 @@ header {
   display: flex;                    /* Utilise Flexbox pour disposer les éléments en ligne */
   align-items: center;             /* Centre verticalement les éléments dans l'en-tête */
   justify-content: space-between;  /* Espace les éléments à gauche, au centre et à droite */
-  padding: 20px 40px;              /* Ajoute de l'espace autour du contenu (haut/bas: 20px, gauche/droite: 40px) */
+  padding: 0px 20px;              /* Ajoute de l'espace autour du contenu (haut/bas: 20px, gauche/droite: 40px) */
   height: 100px;                   /* Définit une hauteur fixe de 100px pour l'en-tête */
 }
 
 /* Conteneur de la barre de recherche */
 .search-bar {
   flex: 1;               /* Prend tout l'espace disponible entre les deux boutons */
-  margin: 0 40px;        /* Espace à gauche et à droite de la barre de recherche */
+  margin: 0 50px;        /* Espace à gauche et à droite de la barre de recherche */
 }
 
 /* Style de la barre de recherche */

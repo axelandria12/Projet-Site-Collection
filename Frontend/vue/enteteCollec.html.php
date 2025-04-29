@@ -9,10 +9,9 @@
     <body>
     <div>
     <header>
-    <li id="logo"><a href="./?action=accueil"><img src="images/test.png" class="photo" alt="logo" /></a></li>
-            <li></li> 
+    <a href="./?action=Main.php"><img src="images/collecthor.png" class="photo" alt="logo" /></a> 
     <div class="search-bar">
       <input type="text" placeholder="Rechercher...">
     </div>
-    <button>Droite</button>
+    <button>Profil</button>
 </header>
