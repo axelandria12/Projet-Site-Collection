@@ -124,13 +124,15 @@
         return $result;
     }
 
-    function register($pseudo, $mail, $mdp) {
+    function register($pseudo, $mail, $mdp, $image) {
         $result = [];
 
         try {
+            $calcule =  AmountAccounts()[0]["Nombre de comptes"]+1;
             $base = getBase("root", "", "site_collection", "");
-            $request = $base->prepare("insert into compte (n°compte, pseudo, mail, mot de passe) values (:id, :pseudo, :mail, :mdp)");
-            $request->bindParam(':id', AmountAccounts()[0]+1, PDO::PARAM_INT);
+            $request = $base->prepare("insert into compte (n°compte, pseudo, mail, mdp, image) values (:id, :pseudo, :mail, :mdp, :image)");
+            $request->bindParam(':image', $image, PDO::PARAM_INT);
+            $request->bindParam(':id', $calcule, PDO::PARAM_INT);
             $request->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
             $request->bindParam(':mail', $mail, PDO::PARAM_STR);
             $request->bindParam(':mdp', $mdp, PDO::PARAM_STR);

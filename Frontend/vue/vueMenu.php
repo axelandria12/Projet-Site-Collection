@@ -4,6 +4,6 @@ je fais un test maintenant
 
 <?php
     include_once "../../Backend/data.php";
-    print(AmountAccounts()+1);
-    register('test', 'test@test.fr', 'test12');
+    print(AmountAccounts()[0]["Nombre de comptes"]);
+    register('test2', 'test@test2.fr', 'test124', "");
 ?>
