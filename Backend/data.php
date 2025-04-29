@@ -141,4 +141,24 @@
             die();
         }
     }
+    function GetAccountImage($id) {
+        $result = [];
+
+        try {
+            $base = getBase("root", "", "site_collection", "");
+            $request = $base->prepare("select image from compte where n°compte = :id");
+            $request->bindParam(':id', $id, PDO::PARAM_INT);
+            $request->execute();
+            $Account = $request->fetch(PDO::FETCH_ASSOC);
+            while ($Account) {
+                $result[] = $Account;
+                $Account = $request->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
 ?>
