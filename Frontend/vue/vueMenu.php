@@ -4,6 +4,7 @@ je fais un test maintenant
 
 <?php
     include_once "../../Backend/data.php";
-    print(AmountAccounts()[0]["Nombre de comptes"]);
-    register('test2', 'test@test2.fr', 'test124', "");
+    print(AmountAccounts()[0]["Nombre de comptes"] . "<br>");
+    register('Axel', 'kaiserlovekaiser@gluhgluh.gluh', 'le marchand de glace', "");
+    print(isLoggedIn());
 ?>

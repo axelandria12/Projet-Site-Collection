@@ -78,9 +78,9 @@
         
         $Accounts = getCompteByMail($mail);
         $Account = $Accounts[0];
-        if (isset($Accounts) and $Account['mot de passe'] == $mdp) {
+        if (isset($Accounts) and $Account['mdp'] == $mdp) {
             $_SESSION['Id'] = $Account['n°compte'];
-            $_SESSION['Mdp'] = $Account['mot de passe'];
+            $_SESSION['Mdp'] = $Account['mdp'];
         }
 
         return $result;
@@ -125,8 +125,6 @@
     }
 
     function register($pseudo, $mail, $mdp, $image) {
-        $result = [];
-
         try {
             $calcule =  AmountAccounts()[0]["Nombre de comptes"]+1;
             $base = getBase("root", "", "site_collection", "");
@@ -137,10 +135,10 @@
             $request->bindParam(':mail', $mail, PDO::PARAM_STR);
             $request->bindParam(':mdp', $mdp, PDO::PARAM_STR);
             $request->execute();
+            login($mail, $mdp);
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
             die();
         }
-        return $result;
     }
 ?>
