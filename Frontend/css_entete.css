@@ -1,0 +1,47 @@
+/* Supprime les marges par défaut du body et définit une police */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style de l'en-tête */
+header {
+  background-color: #001f3f;        /* Définit un fond bleu foncé */
+  color: white;                     /* Couleur du texte en blanc */
+  display: flex;                    /* Utilise Flexbox pour disposer les éléments en ligne */
+  align-items: center;             /* Centre verticalement les éléments dans l'en-tête */
+  justify-content: space-between;  /* Espace les éléments à gauche, au centre et à droite */
+  padding: 20px 40px;              /* Ajoute de l'espace autour du contenu (haut/bas: 20px, gauche/droite: 40px) */
+  height: 100px;                   /* Définit une hauteur fixe de 100px pour l'en-tête */
+}
+
+/* Conteneur de la barre de recherche */
+.search-bar {
+  flex: 1;               /* Prend tout l'espace disponible entre les deux boutons */
+  margin: 0 40px;        /* Espace à gauche et à droite de la barre de recherche */
+}
+
+/* Style de la barre de recherche */
+.search-bar input {
+  width: 100%;           /* Prend toute la largeur de son conteneur */
+  padding: 14px;         /* Espace intérieur pour agrandir le champ */
+  font-size: 16px;       /* Taille du texte dans le champ */
+  border: none;          /* Supprime la bordure par défaut */
+  border-radius: 6px;    /* Coins arrondis */
+}
+
+/* Style des boutons gauche et droite */
+button {
+  background-color: #0074D9; /* Bleu plus clair pour le bouton */
+  color: white;              /* Texte blanc */
+  border: none;              /* Supprime la bordure par défaut */
+  padding: 14px 24px;        /* Espace intérieur (vertical: 14px, horizontal: 24px) */
+  font-size: 16px;           /* Taille du texte */
+  border-radius: 6px;        /* Coins arrondis */
+  cursor: pointer;           /* Curseur pointeur au survol */
+}
+
+/* Effet au survol du bouton */
+button:hover {
+  background-color: #005fa3; /* Fonce le bouton quand on passe la souris dessus */
+}

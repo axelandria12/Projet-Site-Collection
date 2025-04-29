@@ -1,0 +1,6 @@
+/* prend les photos et les forces automatiquement a prendre la taille du conteneur*/
+.photo {
+    max-width: 50%;
+    height: auto;
+  }
+  
