@@ -9,10 +9,16 @@
     <body>
     <div>
     <header>
-    <a href="./?action=Main.php"><img src="images/collecthor.png" class="photo" alt="logo" /></a> 
+    <a href="./?action=Main.php"><img src="../images/collecthor.png" class="photo" alt="logo" /></a> 
     <div class="search-bar">
       <input type="text" placeholder="Rechercher...">
     </div>
-    <a href="./?action=cgu">CGU</a>
+  <?php include_once "../../Backend/data.php" ?>
+    <?php if(isLoggedIn()){ ?>
+            <a href="./?action=profil"><img src="images/profil.png" alt="loupe" />Mon Profil</a><
+            <?php } 
+            else{ ?>
+            <a href="./?action=cgu"><img src="../images/connexion.png" class="photo" alt="déconnecter" /></a>
+            <?php } ?>
             
 </header>
