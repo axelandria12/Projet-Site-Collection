@@ -3,15 +3,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <title><?php echo "Projet Collection" //$titre ?></title>
-        <style type="text/css">
-            @import url("css/css.css");
-        </style>
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="css_entete.css">
+        <link rel="stylesheet" href="css_image.css">
     </head>
     <body>
     <div>
     <header>
-  <button class="left-btn">Menu</button>
-  <h1>Mon super site</h1>
-  <button class="right-btn">Connexion</button>
+    <a href="./?action=Main.php"><img src="images/collecthor.png" class="photo" alt="logo" /></a> 
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher...">
+    </div>
+    <button>Profil</button>
 </header>
