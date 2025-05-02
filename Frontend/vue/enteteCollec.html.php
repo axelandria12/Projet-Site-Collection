@@ -3,8 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <title><?php echo "Projet Collection" //$titre ?></title>
-        <link rel="stylesheet" href="css_entete.css">
-        <link rel="stylesheet" href="css_image.css">
+        <link rel="stylesheet" href="../css/css_entete.css">
+        <link rel="stylesheet" href="../css/css_image.css">
     </head>
     <body>
     <div>
@@ -13,5 +13,6 @@
     <div class="search-bar">
       <input type="text" placeholder="Rechercher...">
     </div>
-    <button>Profil</button>
+    <a href="./?action=cgu">CGU</a>
+            
 </header>
