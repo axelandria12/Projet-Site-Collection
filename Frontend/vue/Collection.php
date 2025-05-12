@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données avec PDO
-$pdo = new PDO('mysql:host=localhost;dbname=site collection;charset=utf8mb4', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=site_collection;charset=utf8mb4', 'root', '');
 
 // Récupération du tag sélectionné à partir de la requête GET, avec une valeur par défaut 'all'
 $selectedTag = $_GET['tag'] ?? 'all';
