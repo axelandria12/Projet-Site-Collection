@@ -20,86 +20,180 @@ $filteredItems = $selectedTag === 'all' ? $items : array_filter($items, fn($i) =
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collecthor - Collection</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #f1f5f9;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .header {
-      font-size: 28px;
-      font-weight: bold;
-      color: #e0f2fe;
-      text-shadow: 1px 1px 3px #0ea5e9;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .top-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .top-bar form,
-    .top-bar select,
-    .top-bar button {
-      font-size: 14px;
-    }
-    select,
-    button {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      background-color: #0ea5e9;
-      color: white;
-      cursor: pointer;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 20px;
-    }
-    .grid-item {
-      background: #334155;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .grid-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
-    }
-    .grid-item img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      padding: 10px;
-      background: #38bdf8;
-      border-radius: 6px;
-      transition: background-color 0.3s, color 0.3s;
-      margin-bottom: 10px;
-    }
-    a:hover {
-      background-color: #0ea5e9;
-      color: #f8fafc;
-    }
-    form {
-      display: inline;
-    }
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #f1f5f9;
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.4;
+}
+
+.header {
+  font-size: 32px;
+  font-weight: bold;
+  color: #e0f2fe;
+  text-shadow: 1px 1px 3px #0ea5e9;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.top-bar form {
+  display: flex;
+}
+
+select,
+button {
+  padding: 10px 14px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0ea5e9;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover,
+select:hover {
+  background-color: #0284c7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  background: #334155;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #38bdf8;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background-color: #0ea5e9;
+  color: #f8fafc;
+}
+
+form {
+  display: inline;
+}
+
+/* === Responsive Breakpoints === */
+
+@media (max-width: 1024px) {
+  .header {
+    font-size: 28px;
+  }
+
+  select,
+  button {
+    font-size: 14px;
+    padding: 9px 12px;
+  }
+
+  .grid-item img {
+    height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .top-bar form {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .header {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .header {
+    font-size: 20px;
+  }
+
+  select,
+  button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .grid-item {
+    padding: 10px;
+  }
+
+  .grid-item img {
+    height: 100px;
+  }
+
+  a {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>
